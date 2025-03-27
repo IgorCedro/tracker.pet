@@ -1,3 +1,8 @@
+#page ion-content{
+  --background: #FF8C00;
+  --color: #fff;
+}
+
 #container {
   text-align: center;
   display: flex;
@@ -31,7 +36,6 @@
   margin-bottom: -6rem;
 }
 
-#page ion-content{
-  --background: #FF8C00;
-  --color: #fff;
+#container ion-button {
+  margin: 2rem;
 }
