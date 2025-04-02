@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Forces left alignment for ALL ion-input placeholders */
+ion-input .native-input.sc-ion-input-md {
+    text-align: left !important;
+    padding-left: 12px !important;
+  }
+  
+::ng-deep ion-input .native-input.sc-ion-input-md {
+    text-align: left !important;
+    padding-left: 12px !important;
+  }
