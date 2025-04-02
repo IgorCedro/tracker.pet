@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Área Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="user" class="welcome-message">
+    <h2>Bem-vindo, {{ user.email }}!</h2>
+    <p>Você está na área principal do aplicativo</p>
+  </div>
+
+  <ion-button expand="block" (click)="signOut()">Sair</ion-button>
+</ion-content>
