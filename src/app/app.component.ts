@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { SupabaseService } from './services/supabase.service';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import * as ionicons from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,14 @@ export class AppComponent {
   constructor(
     private supabase: SupabaseService,
     private router: Router
-  ) {}
+  ) {
+    addIcons({
+      'home': ionicons.homeOutline,
+      'heart': ionicons.heartOutline,
+      'time': ionicons.timeOutline,
+      'person': ionicons.personOutline
+    });
+  }
 
   
   async ngOnInit() {

@@ -46,3 +46,46 @@ ion-input .native-input.sc-ion-input-md {
     text-align: left !important;
     padding-left: 12px !important;
   }
+
+ /* Define a cor laranja personalizada */
+:root {
+  --ion-color-orange: #ff8c00;
+  --ion-color-orange-contrast: #ffffff;
+}
+
+/* Estilos do footer */
+.custom-footer {
+  ion-button {
+    --color: #666; /* Cor padrão do texto e ícone */
+    --color-activated: var(--ion-color-orange); /* Cor quando pressionado */
+    
+    /* Estilo quando a aba está ativa */
+    &.active {
+      --color: var(--ion-color-orange); /* Muda cor do texto */
+      
+      ion-icon {
+        color: var(--ion-color-orange); /* Garante cor do ícone */
+      }
+      
+      ion-label {
+        color: var(--ion-color-orange); /* Garante cor do texto */
+      }
+    }
+    
+    /* Alinhamento dos itens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    ion-icon {
+      font-size: 24px;
+      margin-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    
+    ion-label {
+      font-size: 12px;
+      transition: color 0.3s ease;
+    }
+  }
+}
