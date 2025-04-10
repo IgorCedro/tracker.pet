@@ -1,0 +1,61 @@
+#page{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+#page h1{
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin: 1rem;
+    margin-bottom: -3.5rem;
+  
+    color: #FF8C00;
+    font-family: sans-serif;
+}
+#page img{
+    margin-bottom: -4rem;
+}
+
+#form ion-label {
+    text-align: left !important;
+    display: block !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin-bottom: 8px;
+    color: #000; /* Label text color */
+}
+
+#form ion-input{
+    --border-color: #FF8C00;        /* Border color when inactive */
+    --border-color-activated: #FF8C00; /* Border color when focused */
+    --highlight-color-focused: #FF8C00; /* Underline color when focused (if using fill="solid") */
+    --border-radius: 8px;
+    --border-width: 1px;
+
+    margin-bottom: 1rem;
+}
+
+/* Targets the actual input inside ion-input */
+#form ion-input .native-input.sc-ion-input-md {
+    text-align: left !important;
+    padding-left: 12px !important;
+  }
+  
+/* Fix for password field (eye icon) */
+#form ion-input .native-input.sc-ion-input-md[type="password"] {
+    padding-right: 40px !important;
+}
+
+ion-button{
+    color: white;
+    --background: #FF8C00;
+
+    margin-top: 1.3rem;
+    margin-bottom: 1rem;
+}

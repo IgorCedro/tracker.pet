@@ -24,8 +24,12 @@ export class AppComponent {
   }
 
   
-  async ngOnInit() {
+  async ngOnInit() { 
     const { data: { session } } = await this.supabase.getSession();
-    await this.router.navigate([session ? '/main' : '/home']);
+    this.supabase.authChanges((event, session) => {
+      if (event === 'SIGNED_IN') {
+        // Opcional: você pode adicionar lógica aqui se quiser
+      }
+    });
   }
 }

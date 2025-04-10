@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { 
-  IonContent, IonToolbar, IonLabel, IonInput, IonButton, IonItemDivider, IonInputPasswordToggle, ToastController, IonSpinner 
+  IonContent, IonLabel, IonInput, IonButton, IonItemDivider, IonInputPasswordToggle, ToastController
 } from '@ionic/angular/standalone';
 import { SupabaseService } from '../services/supabase.service';
-import { Router } from '@angular/router';
+import { Router, RouterLinkWithHref, RouterLink  } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonContent, IonToolbar, CommonModule, FormsModule, IonLabel, IonInput, IonButton, IonItemDivider, IonInputPasswordToggle, IonSpinner
+    IonContent, CommonModule, FormsModule, IonLabel, IonInput, IonButton, IonItemDivider, IonInputPasswordToggle, RouterLinkWithHref, RouterLink
   ]
 })
 export class LoginPage implements OnInit {
@@ -33,6 +33,13 @@ export class LoginPage implements OnInit {
       return;
     }
   
+    // Validação simples de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.email)) {
+      await this.presentToast('Por favor, insira um email válido');
+      return;
+    }
+  
     this.loading = true;
     
     try {
@@ -40,7 +47,7 @@ export class LoginPage implements OnInit {
       if (error) throw error;
       await this.router.navigate(['/main']);
     } catch (error: any) {
-      await this.presentToast(error.message || 'Erro no login');
+      await this.presentToast(error.message || 'Erro no login. Verifique suas credenciais.');
     } finally {
       this.loading = false;
     }

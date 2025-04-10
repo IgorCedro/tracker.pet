@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
-  IonHeader, IonToolbar, IonTitle, IonContent, 
-  IonButton, IonMenu, IonList, IonItem, IonSearchbar, IonFooter, IonApp, IonIcon, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle 
+ IonToolbar, IonContent, IonButton, IonSearchbar, IonFooter, IonApp, IonIcon, IonLabel,
+  IonCard, IonCardContent, IonCardHeader, IonCardTitle 
 } from '@ionic/angular/standalone';
 import { SupabaseService } from '../services/supabase.service';
 import { User } from '@supabase/supabase-js';
@@ -16,8 +16,8 @@ import { NavController } from '@ionic/angular';
   standalone: true,
   imports: [
     CommonModule,
-    IonHeader, IonToolbar, IonTitle, IonContent,
-    IonButton, IonMenu, IonList, IonItem, IonSearchbar, IonFooter, IonApp, IonIcon, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle
+    IonToolbar, IonContent,
+    IonButton, IonSearchbar, IonFooter, IonApp, IonIcon, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardTitle
   ]
 })
 export class MainPage {

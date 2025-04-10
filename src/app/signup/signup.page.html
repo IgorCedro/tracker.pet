@@ -1,0 +1,28 @@
+<div id="page">
+  <ion-content [fullscreen]="true">
+    <h1>Cadastro</h1>
+    <img src="../../assets/icon/logo_invertida.png" alt="tracker.pet logo">
+
+    <div id="form">
+      <form #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm)">
+        <ion-label>Nome Completo</ion-label>
+        <ion-input [(ngModel)]="name" name="name" placeholder="Seu nome completo" type="text" fill="outline" required></ion-input>
+        <ion-label>Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" placeholder="email@email.com" type="email" fill="outline" required></ion-input>
+        <ion-label>Senha</ion-label>
+        <ion-input [(ngModel)]="password" name="password" placeholder="*********" type="password" fill="outline" required>
+          <ion-input-password-toggle slot="end" color="warning"></ion-input-password-toggle>
+        </ion-input>
+        <ion-label>Confirme sua Senha</ion-label>
+        <ion-input [(ngModel)]="confirmPassword" name="password" placeholder="*********" type="password" fill="outline" required></ion-input>
+        <ion-label>Data de nascimento</ion-label>
+        <ion-input [(ngModel)]="birthdate" name="birthdate" type="date" fill="outline" required></ion-input>
+        <ion-button type="submit" shape="round"  expand="block">Cadastrar</ion-button>
+      </form>
+    </div>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-button shape="round" color="light" [routerLink]="['/login']">Voltar para o login</ion-button>
+  </ion-content>
+</div>

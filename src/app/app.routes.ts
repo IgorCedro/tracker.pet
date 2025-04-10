@@ -24,6 +24,10 @@ export const routes: Routes = [
     canActivate: [authGuard] // Protege a rota
   },
   {
+    path: 'signup',
+    loadComponent: () => import('./signup/signup.page').then( m => m.SignupPage)
+  },
+  {
     path: '**',
     redirectTo: 'home' // Qualquer rota inválida redireciona para home
   }
