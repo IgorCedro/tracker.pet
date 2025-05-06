@@ -4,22 +4,24 @@
     <img src="../../assets/icon/logo_invertida.png" alt="tracker.pet logo">
 
     <div id="form">
-      <ion-label>Email</ion-label>
-      <ion-input placeholder="email@email.com" type="email" fill="outline"></ion-input>
-      <ion-label>Senha</ion-label>
-      <ion-input placeholder="*********" type="password" fill="outline">
-        <ion-input-password-toggle slot="end" color="warning"></ion-input-password-toggle>
-      </ion-input>
-      <p>Esqueceu a senha? <a target="_blank" rel="noopener noreferrer" href="">Clique aqui</a></p>
-      <p>Não possui conta? <a target="_blank" rel="noopener noreferrer" href="">Cadastre-se aqui</a></p>
-      <ion-button shape="round"  expand="block">LOGIN</ion-button>
+      <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm)">
+        <ion-label>Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" placeholder="email@email.com" type="email" fill="outline" required></ion-input>
+        <ion-label>Senha</ion-label>
+        <ion-input [(ngModel)]="password" name="password" placeholder="*********" type="password" fill="outline" required>
+          <ion-input-password-toggle slot="end" color="warning"></ion-input-password-toggle>
+        </ion-input>
+        <p>Esqueceu a senha? <a href="#">Clique aqui</a></p>
+        <p>Não possui conta? <a [routerLink]="['/signup']">Cadastre-se aqui</a></p>
+        <ion-button type="submit" shape="round" expand="block">LOGIN</ion-button>
+      </form>
     </div>
     
     <ion-item-divider></ion-item-divider>
 
     <div id="other">
-      <ion-button shape="round" expand="block">LOGIN COM GOOGLE</ion-button>
-      <ion-button shape="round" expand="block">LOGIN COM FACEBOOK</ion-button>
+      <ion-button (click)="loginWithGoogle()" shape="round" expand="block">LOGIN COM GOOGLE</ion-button>
+      <ion-button (click)="loginWithFacebook()" shape="round" expand="block">LOGIN COM FACEBOOK</ion-button>
     </div>
   </ion-content>
 </div>

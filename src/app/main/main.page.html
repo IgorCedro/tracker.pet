@@ -1,0 +1,118 @@
+<ion-app>
+  <!-- Container principal com flex column -->
+  <div class="main-container">
+    <!-- ion-content deve crescer e ocupar o espaço restante -->
+    <ion-content class="custom-content">
+      <div class="header-container">
+        <div *ngIf="user" class="welcome-message">
+          <div class="profile-section">
+            <img src="../assets/avatar_placeholder.png" alt="foto de perfil">
+            <div class="text-section">
+              <h2>Oi, {{ user.email }}!</h2>
+              <p>Bom dia</p>
+            </div>
+          </div>
+        </div>
+        <ion-button (click)="signOut()" class="logout-button">Sair</ion-button>
+      </div>
+
+      <div id="page">
+        <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+        <ion-card>
+          <img src="./assets/cat_dog.jpg" />
+          <ion-card-header>
+            <ion-card-title>Você ama o seu bichinho?</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+          Veio ao lugar certo!
+          </ion-card-content>
+        </ion-card>
+
+        <div id="catalog">
+          <div class="category-header">
+            <h3>Categoria</h3>
+            <a href="#" class="see-all">Ver tudo</a>
+          </div>
+          <div class="category-grid">
+            <!-- Item 1 -->
+            <div class="category-item">
+              <a href="#">
+                <img src="../assets/dog_veterinary.jpg" alt="Categoria 1" class="category-img">
+                <p class="category-caption">Veterinário</p>
+              </a>
+            </div>
+        
+            <!-- Item 2 -->
+            <div class="category-item">
+              <a href="#">
+                <img src="../assets/cat_leash.jpg" alt="Categoria 2" class="category-img">
+                <p class="category-caption">Passeio</p>
+              </a>
+            </div>
+        
+            <!-- Item 3 -->
+            <div class="category-item">
+              <a href="#">
+                <img src="../assets/dog_shopping.jpg" alt="Categoria 3" class="category-img">
+                <p class="category-caption">Pet Shop</p>
+              </a>
+            </div>
+        
+            <!-- Item 4 -->
+            <div class="category-item">
+              <a href="#">
+                <img src="../assets/cat_lizard.jpg" alt="Categoria 4" class="category-img">
+                <p class="category-caption">Treinamento</p>
+              </a>
+            </div>
+          </div>        
+        </div>
+
+        <div id="events">
+          <h3>Eventos</h3>
+          <ion-card>
+            <img alt="Exemplo de Evento" src="../assets/cat_event.jpg" />
+            <ion-card-header>
+              <ion-card-title>Encontre eventos para seus bichinhos!</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <ion-button>Ver mais</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer class="fixed-footer">
+      <ion-toolbar class="custom-footer">
+        <div class="footer-buttons">
+
+          <ion-button fill="clear" [class.active]="currentTab === 'main'" 
+          (click)="setActiveTab('main', '/main')">
+            <ion-icon slot="icon-only" name="home" aria-hidden="true"></ion-icon>
+            <ion-label>Principal</ion-label>
+          </ion-button>
+    
+          <ion-button fill="clear" [class.active]="currentTab === 'servicos'" 
+          (click)="setActiveTab('servicos', '/servicos')">
+            <ion-icon slot="icon-only" name="heart" aria-hidden="true"></ion-icon>
+            <ion-label>Serviços</ion-label>
+          </ion-button>
+    
+          <ion-button fill="clear" [class.active]="currentTab === 'historico'" (click)="setActiveTab('historico', '/historico')">
+            <ion-icon slot="icon-only" name="time" ></ion-icon>
+            <ion-label>Histórico</ion-label>
+          </ion-button>
+    
+          <ion-button fill="clear" [class.active]="currentTab === 'perfil'" (click)="setActiveTab('perfil', '/perfil')">
+            <ion-icon slot="icon-only" name="person" aria-hidden="true"></ion-icon>
+            <ion-label>Perfil</ion-label>
+          </ion-button>
+
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</ion-app>
