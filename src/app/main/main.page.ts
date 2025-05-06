@@ -6,7 +6,8 @@ import {
 } from '@ionic/angular/standalone';
 import { SupabaseService } from '../services/supabase.service';
 import { User } from '@supabase/supabase-js';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -23,7 +24,7 @@ import { NavController } from '@ionic/angular';
 export class MainPage {
   user: User | null = null; // Importar tipo User do supabase
 
-  constructor(private supabase: SupabaseService, private navCtrl: NavController) {
+  constructor(private supabase: SupabaseService, private router: Router) {
     this.loadUser();
   }
 
@@ -44,9 +45,15 @@ export class MainPage {
   currentTab: string = 'main'; // Define a aba inicial
 
   setActiveTab(tab: string, route: string = '') {
+    console.log('Navigating to:', route); // Debug
     this.currentTab = tab;
     if (route) {
-      this.navCtrl.navigateForward(route);
+      this.router.navigateByUrl(route, {
+      }).then(() => {
+        console.log('Navigation complete');
+      }).catch(err => {
+        console.error('Navigation error:', err);
+      });
     }
   }
 

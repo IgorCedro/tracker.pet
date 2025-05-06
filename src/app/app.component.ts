@@ -19,7 +19,9 @@ export class AppComponent {
       'home': ionicons.homeOutline,
       'heart': ionicons.heartOutline,
       'time': ionicons.timeOutline,
-      'person': ionicons.personOutline
+      'person': ionicons.personOutline,
+      'location': ionicons.locationOutline,
+      'refresh': ionicons.refreshOutline
     });
   }
 

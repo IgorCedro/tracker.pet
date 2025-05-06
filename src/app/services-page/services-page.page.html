@@ -4,34 +4,37 @@
     <!-- ion-content deve crescer e ocupar o espaço restante -->
     <ion-content class="custom-content">
       <div class="header-container">
-        <div *ngIf="user" class="welcome-message">
-          <div class="profile-section">
-            <img src="../assets/avatar_placeholder.png" alt="foto de perfil">
-            <div class="text-section">
-              <h2>Oi, {{ user.email }}!</h2>
-              <p>Bom dia</p>
-            </div>
+        @if (isLoadingLocation) {
+          <div class="location-loading">
+            <ion-skeleton-text animated style="width: 100px"></ion-skeleton-text>
           </div>
-        </div>
-        <ion-button (click)="signOut()" class="logout-button">Sair</ion-button>
+        } @else {
+          <div class="location-info">
+            <ion-icon name="location" class="location-icon"></ion-icon>
+            <span class="location-text">{{ userLocation }}</span>
+          </div>
+          <!--<ion-button fill="clear" size="small" (click)="refreshLocation()" class="refresh-button">
+            <ion-icon name="refresh" slot="icon-only"></ion-icon>
+          </ion-button>-->
+        }
       </div>
 
       <div id="page">
-        <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
         <ion-card>
-          <img src="./assets/cat_dog.jpg" />
           <ion-card-header>
-            <ion-card-title>Você ama o seu bichinho?</ion-card-title>
+            <ion-card-title>Vamos encontrar um veterinário especialista para seu bichinho!</ion-card-title>
           </ion-card-header>
         
           <ion-card-content>
-          Veio ao lugar certo!
+            <img alt="Exemplo de Evento" src="../assets/icon/favicon.png"/>
           </ion-card-content>
         </ion-card>
 
+        <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+
         <div id="catalog">
           <div class="category-header">
-            <h3>Categoria</h3>
+            <h3>Serviços</h3>
             <a href="#" class="see-all">Ver tudo</a>
           </div>
           <div class="category-grid">
@@ -39,7 +42,7 @@
             <div class="category-item">
               <a href="#">
                 <img src="../assets/dog_veterinary.jpg" alt="Categoria 1" class="category-img">
-                <p class="category-caption">Veterinário</p>
+                <p class="category-caption">Vacinação</p>
               </a>
             </div>
         
@@ -47,7 +50,7 @@
             <div class="category-item">
               <a href="#">
                 <img src="../assets/cat_leash.jpg" alt="Categoria 2" class="category-img">
-                <p class="category-caption">Passeio</p>
+                <p class="category-caption">Cirurgia</p>
               </a>
             </div>
         
@@ -55,7 +58,7 @@
             <div class="category-item">
               <a href="#">
                 <img src="../assets/dog_shopping.jpg" alt="Categoria 3" class="category-img">
-                <p class="category-caption">Pet Shop</p>
+                <p class="category-caption">Mental</p>
               </a>
             </div>
         
@@ -63,14 +66,24 @@
             <div class="category-item">
               <a href="#">
                 <img src="../assets/cat_lizard.jpg" alt="Categoria 4" class="category-img">
-                <p class="category-caption">Treinamento</p>
+                <p class="category-caption">Dentista</p>
               </a>
             </div>
           </div>        
         </div>
 
-        <div id="events">
-          <h3>Eventos</h3>
+        <div id="profissional">
+          <h3>Melhores especialistas</h3>
+          <ion-card>
+            <img alt="Exemplo de Evento" src="../assets/cat_event.jpg" />
+            <ion-card-header>
+              <ion-card-title>Encontre eventos para seus bichinhos!</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <ion-button>Ver mais</ion-button>
+            </ion-card-content>
+          </ion-card>
           <ion-card>
             <img alt="Exemplo de Evento" src="../assets/cat_event.jpg" />
             <ion-card-header>

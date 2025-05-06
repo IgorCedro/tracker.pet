@@ -28,6 +28,11 @@ export const routes: Routes = [
     loadComponent: () => import('./signup/signup.page').then( m => m.SignupPage)
   },
   {
+    path: 'services-page',
+    loadComponent: () => import('./services-page/services-page.page').then( m => m.ServicesPagePage),
+    canActivate: [authGuard] // Só acessível se autenticado
+  },
+  {
     path: '**',
     redirectTo: 'home' // Qualquer rota inválida redireciona para home
   }
