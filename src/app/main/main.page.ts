@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
  IonToolbar, IonContent, IonButton, IonSearchbar, IonFooter, IonApp, IonIcon, IonLabel,
-  IonCard, IonCardContent, IonCardHeader, IonCardTitle 
+  IonCard, IonCardContent, IonCardHeader, IonCardTitle
 } from '@ionic/angular/standalone';
 import { SupabaseService } from '../services/supabase.service';
 import { User } from '@supabase/supabase-js';

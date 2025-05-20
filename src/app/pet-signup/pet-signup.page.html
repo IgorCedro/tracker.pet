@@ -1,0 +1,39 @@
+<div id="page">
+  <ion-content [fullscreen]="true">
+    <h1>Cadastro de pets</h1>
+    <img src="../../assets/icon/logo_invertida.png" alt="tracker.pet logo">
+
+    <div id="form">
+      <form>
+      <!--<form #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm)">-->
+        <ion-label>Nome do pet</ion-label>
+        <ion-input [(ngModel)]="name" name="name" placeholder="O nome do seu pet" type="text" fill="outline" required></ion-input>
+        <ion-label>Espécie do pet</ion-label>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="species" name="species" required>
+            <ion-radio value="e1">E1</ion-radio><br/>
+            <ion-radio value="e2">E2</ion-radio><br/>
+            <ion-radio value="e3">E3</ion-radio><br/>
+            <ion-radio value="e4">E4</ion-radio><br/>
+            <ion-radio value="e5">E5</ion-radio><br/>
+          </ion-radio-group>
+        </ion-list>
+        <ion-label>Peso do pet</ion-label>
+        <ion-input [(ngModel)]="weight" name="weight" placeholder="O peso do seu pet em kilogramas" type="number" fill="outline"></ion-input>
+        <ion-label>Data de nascimento</ion-label>
+        <ion-input [(ngModel)]="birthdate" name="birthdate" type="date" fill="outline" required></ion-input>
+        <ion-label>Informações adicionais do pet</ion-label>
+        <ion-list>
+          <ion-item  [(ngModel)]="description" name="description">
+            <ion-textarea placeholder="..." fill="outline"></ion-textarea>
+          </ion-item>
+        </ion-list>
+        <ion-button type="submit" shape="round"  expand="block">Cadastrar</ion-button>
+      </form>
+    </div>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-button shape="round" color="light" [routerLink]="['/login']">Voltar para o login</ion-button>
+  </ion-content>
+</div>

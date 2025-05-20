@@ -33,6 +33,10 @@ export const routes: Routes = [
     canActivate: [authGuard] // Só acessível se autenticado
   },
   {
+    path: 'pet-signup',
+    loadComponent: () => import('./pet-signup/pet-signup.page').then( m => m.PetSignupPage)
+  },
+  {
     path: '**',
     redirectTo: 'home' // Qualquer rota inválida redireciona para home
   }
